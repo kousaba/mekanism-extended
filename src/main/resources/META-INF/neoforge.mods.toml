@@ -9,6 +9,9 @@ license="MIT"
     authors="kousaba"
     description="SF Addon for Mekanism"
 
+[[mixins]]
+config="mekanism_extended.mixins.json"
+
 [[dependencies.mekanism_extended]]
     modId="neoforge"
     type="required"
@@ -20,5 +23,11 @@ license="MIT"
     modId="mekanism"
     type="required"
     versionRange="[10.7,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.mekanism_extended]]
+    modId="mekanismgenerators"
+    type="required"
+    versionRange="[10.7.15,)"
     ordering="AFTER"
     side="BOTH"

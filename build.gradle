@@ -19,6 +19,10 @@ neoForge {
         client {
             client()
         }
+        data{
+            data()
+            programArguments.addAll '--mod', 'mekanism_extended', '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        }
     }
 
     mods {
@@ -37,10 +41,18 @@ repositories {
 }
 
 dependencies {
-    // あなたが確認した 1.21.1 用の Mekanism
     implementation "maven.modrinth:mekanism:10.7.15.81"
+    implementation "maven.modrinth:mekanism-generators:10.7.15.81"
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = "UTF-8"
+}
+
+sourceSets{
+    main{
+        resources{
+            srcDir 'src/generated/resources'
+        }
+    }
 }
